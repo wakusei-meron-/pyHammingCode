@@ -1,12 +1,12 @@
 import numpy as np
-import unittest
 import numpy.testing as npt
+import unittest
 from py_hamming_code import py_hamming_code as phc
 
 expected = np.zeros(4)
 
 
-class test_hamming_code_7_4(unittest.TestCase):
+class TestHammingCode74(unittest.TestCase):
     h = phc.HammingCoder(extended=False)
 
     def test_calc_parity_zero(self):
@@ -58,7 +58,7 @@ class test_hamming_code_7_4(unittest.TestCase):
         npt.assert_array_equal(self.h.correct(d), expected)
 
 
-class test_hamming_code_8_4(unittest.TestCase):
+class TestHammingCode84(unittest.TestCase):
     h = phc.HammingCoder(extended=True)
 
     def test_calc_parity_zero(self):

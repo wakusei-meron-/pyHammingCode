@@ -2,7 +2,7 @@
 
 from setuptools import setup, find_packages
 
-setup(name="PyHammingCode",
+setup(name="pyHammingCode",
       version="0.1",
       author="wakusei-meron-",
       author_email="b0941015@gmail.com",
