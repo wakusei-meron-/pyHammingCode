@@ -1,7 +1,7 @@
 import numpy as np
 import unittest
 import numpy.testing as npt
-import py_hamming_code as phc
+from py_hamming_code import py_hamming_code as phc
 
 expected = np.zeros(4)
 

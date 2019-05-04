@@ -1,6 +1,6 @@
 # coding: utf-8
 import numpy as np
-import matrix as mat
+from py_hamming_code import matrix as mat
 
 
 class HammingCoder:
