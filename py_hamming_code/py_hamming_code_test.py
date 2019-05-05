@@ -1,13 +1,15 @@
+import unittest
+
 import numpy as np
 import numpy.testing as npt
-import unittest
-from py_hamming_code import py_hamming_code as phc
+
+import py_hamming_code as phc
 
 expected = np.zeros(4)
 
 
 class TestHammingCode74(unittest.TestCase):
-    h = phc.HammingCoder(extended=False)
+    h = phc.HammingCoder(3, extended=False)
 
     def test_calc_parity_zero(self):
         npt.assert_array_equal(self.h.calc_parity(
@@ -15,19 +17,19 @@ class TestHammingCode74(unittest.TestCase):
 
     def test_calc_parity_x1(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([1, 0, 0, 0])), np.array([1, 1, 1, 0, 0, 0, 0]))
+            np.array([1, 0, 0, 0])), np.array([1, 0, 0, 0, 0, 1, 1]))
 
     def test_calc_parity_x2(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 1, 0, 0])), np.array([1, 0, 0, 1, 1, 0, 0]))
+            np.array([0, 1, 0, 0])), np.array([0, 1, 0, 0, 1, 0, 1]))
 
     def test_calc_parity_x3(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 0, 1, 0])), np.array([0, 1, 0, 1, 0, 1, 0]))
+            np.array([0, 0, 1, 0])), np.array([0, 0, 1, 0, 1, 1, 0]))
 
     def test_calc_parity_x4(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 0, 0, 1])), np.array([1, 1, 0, 1, 0, 0, 1]))
+            np.array([0, 0, 0, 1])), np.array([0, 0, 0, 1, 1, 1, 1]))
 
     def test_x1_error(self):
         d = np.array([1, 0, 0, 0, 0, 0, 0])
@@ -67,19 +69,19 @@ class TestHammingCode84(unittest.TestCase):
 
     def test_calc_parity_x1(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([1, 0, 0, 0])), np.array([1, 1, 1, 0, 0, 0, 0, 1]))
+            np.array([1, 0, 0, 0])), np.array([1, 0, 0, 0, 0, 1, 1, 1]))
 
     def test_calc_parity_x2(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 1, 0, 0])), np.array([1, 0, 0, 1, 1, 0, 0, 1]))
+            np.array([0, 1, 0, 0])), np.array([0, 1,  0, 0, 1, 0, 1, 1]))
 
     def test_calc_parity_x3(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 0, 1, 0])), np.array([0, 1, 0, 1, 0, 1, 0, 1]))
+            np.array([0, 0, 1, 0])), np.array([0, 0, 1, 0, 1, 1, 0, 1]))
 
     def test_calc_parity_x4(self):
         npt.assert_array_equal(self.h.calc_parity(
-            np.array([0, 0, 0, 1])), np.array([1, 1, 0, 1, 0, 0, 1, 0]))
+            np.array([0, 0, 0, 1])), np.array([0, 0, 0, 1, 1, 1, 1, 0]))
 
     def test_x1_error(self):
         d = np.array([1, 0, 0, 0, 0, 0, 0, 0])
